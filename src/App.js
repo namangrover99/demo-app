@@ -1,5 +1,6 @@
 import './App.css';
 import { useEffect, useState } from 'react';
+import Counter from './Components/counter';
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
       <h1>{timer}</h1>
       <h1>{count}</h1>
       <h3>Updated At: {time}</h3>
-      <button style={{cursor: 'pointer'}} onClick={updateCounter}>Update Counter</button>
+      <Counter updateCounter={updateCounter} />
     </div>
   );
 }
