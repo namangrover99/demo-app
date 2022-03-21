@@ -6,7 +6,6 @@ const Counter = ({ value }) => {
       {/* <button style={{cursor: 'pointer'}} onClick={decrementCounter}>Decrement Counter</button>
       <button style={{cursor: 'pointer'}} onClick={updateCounter}>Increment Counter</button> */}
       <h1>{value}</h1>
-
     </div>
   )
 }

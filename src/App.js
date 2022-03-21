@@ -4,21 +4,21 @@ import Counter from './Components/counter';
 
 function App() {
 
-    const [time, setTime] = useState(`${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`)
-    const [count, setCount] = useState(0);
-    const [timer, setTimer] = useState(`${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`)
-    const updateCounter = () => {
-      setCount(count + 1);
-      setTime(`${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`)
-    }
-    const decrementCounter = () => {
-      setCount(count - 1);
-      setTime(`${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`)
-    }
+  const [time, setTime] = useState(`${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`)
+  const [count, setCount] = useState(0);
+  const [timer, setTimer] = useState(`${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`)
+  const updateCounter = () => {
+    setCount(count + 1);
+    setTime(`${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`)
+  }
+  const decrementCounter = () => {
+    setCount(count - 1);
+    setTime(`${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`)
+  }
 
-    setInterval(() => {
-      setTimer(`${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`);
-    },1000)
+  setInterval(() => {
+    setTimer(`${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`);
+  }, 1000)
 
   return (
     <div className="App">
@@ -28,8 +28,8 @@ function App() {
       <h3>Updated At: {time}</h3>
       {/* <Counter updateCounter={updateCounter} decrementCounter={decrementCounter} /> */}
       <Counter value={count} />
-      <button style={{cursor: 'pointer'}} onClick={decrementCounter}>Decrement Counter</button>
-      <button style={{cursor: 'pointer'}} onClick={updateCounter}>Increment Counter</button>
+      <button style={{ cursor: 'pointer' }} onClick={decrementCounter}>Decrement Counter</button>
+      <button style={{ cursor: 'pointer' }} onClick={updateCounter}>Increment Counter</button>
     </div>
   );
 }
