@@ -1,31 +1,27 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
 
-    const [users, setUsers] = useState([])
-    const [isShow , setIsShow] = useState(false);
-    const [name, setName] = useState("")
-    const handleChange = (e) => {
-      setName(e.target.value)
+    const [time, setTime] = useState(`${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`)
+    const [count, setCount] = useState(0);
+    const [timer, setTimer] = useState(`${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`)
+    const updateCounter = () => {
+      setCount(count + 1);
+      setTime(`${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`)
     }
-    const handleSubmit = () => {
-      console.log(users);
-      setUsers([...name])
-    }
+
+    setInterval(() => {
+      setTimer(`${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`);
+    },1000)
+
   return (
     <div className="App">
       <h1>This is a demo app</h1>
-      <h2>Seen? <span onClick={() => setIsShow(true)} style={{color: 'blue', cursor: 'pointer'}}>Update you details</span></h2>
-      {isShow && <div>
-        <label htmlFor='name'>Your Name</label> <input onChange={handleChange} type="text" id='name' /><br/>
-        <br/>
-        <button onClick={handleSubmit}>Submit</button>
-      </div>}
-      <h2>Seen By:</h2>
-      {users.map((user, index) => (
-        <h3 key={index}>{user}</h3>
-      ))}
+      <h1>{timer}</h1>
+      <h1>{count}</h1>
+      <h3>Updated At: {time}</h3>
+      <button style={{cursor: 'pointer'}} onClick={updateCounter}>Update Counter</button>
     </div>
   );
 }
