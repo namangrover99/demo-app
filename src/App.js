@@ -11,6 +11,10 @@ function App() {
       setCount(count + 1);
       setTime(`${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`)
     }
+    const decrementCounter = () => {
+      setCount(count - 1);
+      setTime(`${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`)
+    }
 
     setInterval(() => {
       setTimer(`${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`);
@@ -22,7 +26,7 @@ function App() {
       <h1>{timer}</h1>
       <h1>{count}</h1>
       <h3>Updated At: {time}</h3>
-      <Counter updateCounter={updateCounter} />
+      <Counter updateCounter={updateCounter} decrementCounter={decrementCounter} />
     </div>
   );
 }
