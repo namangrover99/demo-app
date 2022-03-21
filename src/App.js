@@ -4,20 +4,23 @@ import Counter from './Components/counter';
 
 function App() {
 
-  const [time, setTime] = useState(`${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`)
+  const getNewTime = () => {
+    return `${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`
+  }
+  const [time, setTime] = useState(getNewTime())
   const [count, setCount] = useState(0);
-  const [timer, setTimer] = useState(`${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`)
+  const [timer, setTimer] = useState(getNewTime())
   const updateCounter = () => {
     setCount(count + 1);
-    setTime(`${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`)
+    setTime(getNewTime())
   }
   const decrementCounter = () => {
     setCount(count - 1);
-    setTime(`${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`)
+    setTime(getNewTime())
   }
 
   setInterval(() => {
-    setTimer(`${new Date().getUTCHours()}:${new Date().getUTCMinutes()}:${new Date().getUTCSeconds()}`);
+    setTimer(getNewTime());
   }, 1000)
 
   return (
