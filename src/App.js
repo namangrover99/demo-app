@@ -6,20 +6,26 @@ function App() {
 
     const [users, setUsers] = useState([])
     const [isShow , setIsShow] = useState(false);
-    const handleUpdate = () => {
-
+    const [name, setName] = useState("")
+    const handleChange = (e) => {
+      setName(e.target.value)
+    }
+    const handleSubmit = () => {
+      console.log(users);
+      setUsers([...name])
     }
   return (
     <div className="App">
       <h1>This is a demo app</h1>
-      <h2>Seen? <span onClick={handleUpdate} style={{color: 'blue', cursor: 'pointer'}}>Update you details</span></h2>
-      <div>
-        <label htmlFor='name'>Your Name</label><input type="text" id='name' />
-        <label htmlFor='date'>Seen On(day)</label><input type="text" id='date' />
-      </div>
+      <h2>Seen? <span onClick={() => setIsShow(true)} style={{color: 'blue', cursor: 'pointer'}}>Update you details</span></h2>
+      {isShow && <div>
+        <label htmlFor='name'>Your Name</label> <input onChange={handleChange} type="text" id='name' /><br/>
+        <br/>
+        <button onClick={handleSubmit}>Submit</button>
+      </div>}
       <h2>Seen By:</h2>
-      {users.map((user) => (
-        <h3>{user.name}</h3>
+      {users.map((user, index) => (
+        <h3 key={index}>{user}</h3>
       ))}
     </div>
   );
