@@ -24,9 +24,12 @@ function App() {
     <div className="App">
       <h1>This is a demo app</h1>
       <h1>{timer}</h1>
-      <h1>{count}</h1>
+      {/* <h1>{count}</h1> */}
       <h3>Updated At: {time}</h3>
-      <Counter updateCounter={updateCounter} decrementCounter={decrementCounter} />
+      {/* <Counter updateCounter={updateCounter} decrementCounter={decrementCounter} /> */}
+      <Counter value={count} />
+      <button style={{cursor: 'pointer'}} onClick={decrementCounter}>Decrement Counter</button>
+      <button style={{cursor: 'pointer'}} onClick={updateCounter}>Increment Counter</button>
     </div>
   );
 }
